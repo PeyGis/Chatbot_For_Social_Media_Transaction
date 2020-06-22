@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Move Bot Sendmoney Secure Endpoint</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+              <h3 class="text-center" style="color:green"> Money Transfer</h3>
+                 <h5 class="text-center" style="color:#5cb85c"> Move money from anywhere to anywhere... </h5>
+                 <form>
+                <div class="form-group">
+                    <input type="hidden" id="fb_user_id" name="fb_user_id" <% if(locals.user_id) {%> value="<%= user_id %>" <% } %>/> 
+                </div>
+              <div class="form-group">
+                <label for="sender_account" style="color:green"> Your Wallet Number (<% if(locals.sender_mno) {%> <%= sender_mno %> <% } %>)</label>
+                <input type="number" name="sender_account" class="form-control" id="sender_account" placeholder="Enter Your Wallet Number">
+              </div>
+              <div class="form-group">
+                <label for="transfer_amount" style="color:green">Amount</label>
+                <input type="number" class="form-control" name="transfer_amount" id="transfer_amount" placeholder="Amount" <% if(locals.amount) {%> value="<%= amount %>" <% } %>/>
+              </div>
+              <div class="form-group" style="color:green">
+                <label for="receiver_account"> Receipient Number (<% if(locals.receiver_mno) {%> <%= receiver_mno %> <% } %>)</label>
+                <input type="text" class="form-control" name="receiver_account" id="receiver_account" placeholder="Receipient Number">
+              </div>
+              <button style="margin-top: 20px" type="button" class="btn btn-success btn-block" id="btnSendMoney">Send</button>
+              <center><div id="loader" style="margin-top: 10px" ></div></center>
+              <p id="erorMessage" style="margin: 2%"></p>
+            </form>
+              <div>
+                <center>
+                  <img src="/images/movelogo.png" class="img-responsive" width="300" height="100">
+                </center>
+              </div>
+              
+            </div>
+            
+        </div>
+        
+    </div>
+ <script src="/js/jquery.min.js"></script>
+<script src="/js/customScript.js"></script>
+</body>
+</html>

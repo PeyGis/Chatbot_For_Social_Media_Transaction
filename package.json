@@ -1,0 +1,23 @@
+{
+  "name": "move",
+  "version": "1.0.0",
+  "description": "move app by nsano",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PagesCoffy\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D Coffie",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "newsapi": "^2.2.2",
+    "request": "^2.87.0",
+    "store": "^2.0.12",
+    "voca": "^1.4.0"
+  }
+}

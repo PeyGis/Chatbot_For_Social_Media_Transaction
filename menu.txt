@@ -1,0 +1,36 @@
+//SETTING PERSISTENT MENU
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type" : "call_to_actions",
+  "thread_state" : "existing_thread",
+  "call_to_actions":[
+    {
+      "type":"postback",
+      "title":"Move Menu",
+      "payload":"MOVE_PAYLOAD"
+    },
+    {
+      "type":"web_url",
+      "title":"Contact Us",
+      "url":"https://nsano.com/"
+    }
+  ]
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAGWQHoCpngBAJdPkqKx98ZACDKD8F5GBMCvJmwCVX2xl1XGfZAgovMSIfo8pFGrotTUIfLL6GfNAmEr2sdYc8Yu8huN5uMF8Y5DJkhsbEZC6ZAyq8dkteUyGiBXJAZC85i1ZCLmmfpNT6ZC8i3sZAtwHMbeE1BHuWoOIaxX3iqtsgZDZD"
+
+//ADDING GET STARTED BUTTON
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type":"call_to_actions",
+  "thread_state":"new_thread",
+  "call_to_actions":[
+    {
+      "payload":"Greeting"
+    }
+  ]
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAGWQHoCpngBAJdPkqKx98ZACDKD8F5GBMCvJmwCVX2xl1XGfZAgovMSIfo8pFGrotTUIfLL6GfNAmEr2sdYc8Yu8huN5uMF8Y5DJkhsbEZC6ZAyq8dkteUyGiBXJAZC85i1ZCLmmfpNT6ZC8i3sZAtwHMbeE1BHuWoOIaxX3iqtsgZDZD"
+
+
+ curl -X DELETE -H "Content-Type: application/json" -d '{
+"setting_type":"call_to_actions",
+"thread_state":"existing_thread"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
+
