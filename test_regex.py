@@ -20,14 +20,12 @@ def parse2():
 def parse3():
     for line in open("log.txt", "r"):
         print(" ".join(line.split("[" or "]")[3:5]))
-
-def parse4():
-    for line in open("log.txt", "r"):
-        print(" ".join(line.split()[3:5]).strip("[]"))
   
 def parse5():
     for line in open("log.txt"):
         print(re.split("\[|\]", line)[1])
+
+print('Hello World')
 
 
 if __name__ == "__main__":
