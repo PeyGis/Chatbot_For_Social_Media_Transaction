@@ -22,7 +22,7 @@ def parse3():
         print(" ".join(line.split("[" or "]")[3:5]))
 
 print('Hello World')
-parse2()
+parse3()
 
 
 if __name__ == "__main__":
