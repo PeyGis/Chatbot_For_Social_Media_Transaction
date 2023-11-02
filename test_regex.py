@@ -21,10 +21,10 @@ def parse3():
     for line in open("log.txt", "r"):
         print(" ".join(line.split("[" or "]")[3:5]))
 
-print('Hello World to us')
+print('Hello World')
 parse3()
 
 
 if __name__ == "__main__":
-    parse4()
+    parse1()
     parse3()
