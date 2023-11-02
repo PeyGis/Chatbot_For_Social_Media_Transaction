@@ -21,7 +21,7 @@ def parse3():
     for line in open("log.txt", "r"):
         print(" ".join(line.split("[" or "]")[3:5]))
 
-print('Hello World')
+print('Hello World to us')
 parse3()
 
 
