@@ -1,42 +1,26 @@
-# name: Codecov
-
-# on:
-#   push:
-#     branches:
-#       - main
-#       - master
-#       - codecov
-
-
-# jobs:
-#   build:
-#     name: Upload coverage reports to Codecov
-#     runs-on: ubuntu-latest
-#     permissions: read-all
-#     steps:
-#       - uses: codecov/codecov-action@v3
-#         env:
-#           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-
-name: API workflow
-
+name: Workflow for Codecov example-python
 on: [push, pull_request]
-
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
-    name: Test python API
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Install requirements
-      run: pip install -r requirements.txt
-    - name: Run tests and collect coverage
-      run: pytest --cov .
-    - name: Upload coverage reports to Codecov
-      run: |
-        # Replace `linux` below with the appropriate OS
-        # Options are `alpine`, `linux`, `macos`, `windows`
-        curl -Os https://uploader.codecov.io/latest/linux/codecov
-        chmod +x codecov
-        ./codecov -t ${CODECOV_TOKEN}
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests and collect coverage
+        run: pytest --cov app
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4-beta
+        with:
+          flags: smart-tests
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
