@@ -1,0 +1,19 @@
+name: Codecov
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - codecov
+
+
+jobs:
+  build:
+    name: Upload coverage reports to Codecov
+    runs-on: ubuntu-latest
+    permissions: read-all
+    steps:
+      - uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
